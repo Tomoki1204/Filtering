@@ -7,6 +7,7 @@ import (
 	"image/png"
 	"os"
 	"sort"
+	//"golang.org/x/text/date"
 )
 
 // check handles a potential error.
@@ -101,6 +102,11 @@ func flattenImage(image [][]uint8) []uint8 {
 	return flattenedImage
 }
 
+func worker(startY, endY, startX, endX int, date func(y, x int) uint8, out chan <- [][]uint8 ){
+	result := medianFilter(startY, endY, startX, endX, date)
+
+	out <- result
+}
 // filter reads in a png image, applies the filter and outputs the result as a png image.
 // filter is the function called by the tests in medianfilter_test.go
 func filter(filepathIn, filepathOut string, threads int) {
@@ -118,7 +124,13 @@ func filter(filepathIn, filepathOut string, threads int) {
 	if threads == 1 {
 		newPixelData = medianFilter(0, height, 0, width, immutableData)
 	} else {
-		panic("TODO Implement me")
+		channel := make([]chan [][]uint8, threads)
+		height := 512/threads
+		for i := 0; i < threads; i++{
+			channel[i] = make(chan [][]uint8)
+			go worker(height*i, height*(i+1), 0, width, immutableData, channel[i])
+			newPixelData = append(newPixelData, <-channel[i]...)
+		}
 	}
 
 	imout := image.NewGray(image.Rect(0, 0, width, height))
