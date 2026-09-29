@@ -1,0 +1,35 @@
+goos: darwin
+goarch: arm64
+pkg: uk.ac.bris.cs/concurrency1/filter
+cpu: Apple M2
+BenchmarkFilter/1_workers-8         	       1	 130737000 ns/op
+BenchmarkFilter/1_workers-8         	       1	 137504250 ns/op
+BenchmarkFilter/1_workers-8         	       1	 128795875 ns/op
+BenchmarkFilter/1_workers-8         	       1	 134313958 ns/op
+BenchmarkFilter/1_workers-8         	       1	 135320750 ns/op
+BenchmarkFilter/1_workers-8         	       1	 132105542 ns/op
+BenchmarkFilter/2_workers-8         	       1	 130150000 ns/op
+BenchmarkFilter/2_workers-8         	       1	 133610666 ns/op
+BenchmarkFilter/2_workers-8         	       1	 131037625 ns/op
+BenchmarkFilter/2_workers-8         	       1	 134538042 ns/op
+BenchmarkFilter/2_workers-8         	       1	 133222583 ns/op
+BenchmarkFilter/2_workers-8         	       1	 134264250 ns/op
+BenchmarkFilter/4_workers-8         	       1	 130380708 ns/op
+BenchmarkFilter/4_workers-8         	       1	 135108541 ns/op
+BenchmarkFilter/4_workers-8         	       1	 130553417 ns/op
+BenchmarkFilter/4_workers-8         	       1	 128634791 ns/op
+BenchmarkFilter/4_workers-8         	       1	 131775834 ns/op
+BenchmarkFilter/4_workers-8         	       1	 126059833 ns/op
+BenchmarkFilter/8_workers-8         	       1	 126905542 ns/op
+BenchmarkFilter/8_workers-8         	       1	 125165708 ns/op
+BenchmarkFilter/8_workers-8         	       1	 127555583 ns/op
+BenchmarkFilter/8_workers-8         	       1	 128235958 ns/op
+BenchmarkFilter/8_workers-8         	       1	 127065667 ns/op
+BenchmarkFilter/8_workers-8         	       1	 128339209 ns/op
+BenchmarkFilter/16_workers-8        	       1	 121215166 ns/op
+BenchmarkFilter/16_workers-8        	       1	 119167917 ns/op
+BenchmarkFilter/16_workers-8        	       1	 119438667 ns/op
+BenchmarkFilter/16_workers-8        	       1	 122032125 ns/op
+BenchmarkFilter/16_workers-8        	       1	 121306000 ns/op
+BenchmarkFilter/16_workers-8        	       1	 119871042 ns/op
+ok  	uk.ac.bris.cs/concurrency1/filter	4.091s
